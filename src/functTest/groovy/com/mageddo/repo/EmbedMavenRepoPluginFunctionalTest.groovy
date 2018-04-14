@@ -17,7 +17,7 @@ class UrlVerifierPluginFunctionalTest extends Specification {
         buildFile << """
             plugins {
                 id 'java'
-                id 'com.runafter.gradle-embed-maven-repo'
+                id 'com.mageddo.gradle-embed-maven-repo'
             }
 
         """
@@ -41,8 +41,6 @@ class UrlVerifierPluginFunctionalTest extends Specification {
         """
 
         when:
-        println(testProjectDir)
-        println(testProjectDir.root)
         def result = GradleRunner.create()
             .withProjectDir(testProjectDir.root)
             .withPluginClasspath()
