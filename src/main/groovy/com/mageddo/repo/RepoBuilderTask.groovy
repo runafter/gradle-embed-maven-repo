@@ -101,6 +101,7 @@ public class RepoBuilderTask extends DefaultTask {
 						def mavenFolder = toLocalDependencyMavenFolder(parentGroup, parentModule, parentVersion);
 						mavenFolder.mkdirs();
 
+
 						def dependencyFolder = new File(
 								"${parentGroup}/${parentModule}/${parentVersion}", new File(gradleCacheFolder)
 						);
@@ -167,7 +168,7 @@ public class RepoBuilderTask extends DefaultTask {
 	 * @return
 	 */
 	def toLocalDependencyMavenFolder(group, module, version){
-		String base = "${mavenRepoFolder.absolutePath}/${group}/${module}".replaceAll("\\.", "/").replaceAll(":", "/");
+		String base = mavenRepoFolder.absolutePath + "/${group}/${module}".replaceAll("\\.", "/").replaceAll(":", "/");
 		return new File("${base}/${version}")
 	}
 }
